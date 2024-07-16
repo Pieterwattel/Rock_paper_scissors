@@ -1,0 +1,40 @@
+/* standard selectors */
+
+.inline {
+    display: inline;
+}
+
+.inlineblock {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+.flex {
+    display: flex;
+    gap: 10px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 1;
+}
+
+/* * {
+    outline: 2px solid red;
+} */
+
+
+/* end standard selectors */
+
+* {
+    background-color: rgb(11, 55, 92);
+}
+
+body{
+
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,10 @@
+let the math.random operator make a number between 1 and 3. 
+if num == 1
+return result = rock
+
+
+if num == 2
+return result = paper
+
+if num == 3
+return result == scissors
