@@ -11,3 +11,16 @@ function getComputerChoice() {
         return "scissors"
     }
 }
+
+//a prompt asking: 
+//"rock, paper or scissors."
+function getHumanChoice(){
+    let result1 = prompt("rock paper or scissors?")
+    let result = result1.toLowerCase();
+// if the result is something other than those 3, this will return undefined
+    if (result == "rock" || result == "paper" || result == "scissors") {
+        return result
+    } else {  
+        return "invalid"
+    }
+}
