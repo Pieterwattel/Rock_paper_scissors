@@ -39,3 +39,21 @@ function incComputerScore() {
     ++computerScore
     return computerScore
 }
+
+function playRound(humanChoice, computerChoice, incHumanScore, incComputerScore){
+    let humanAnswer = humanChoice();
+    let computerAnswer = computerChoice();
+    if (computerAnswer == "rock" && humanAnswer == "scissors") {
+        console.log("the computer chose " + computerAnswer + " and won. 1 point for the computer")
+        incComputerScore
+        return
+    } else {
+        console.log ("computer didn't choose rock...")
+        return
+    }
+}
+
+/*for( ; computerScore < 10; computerScore++){
+    playRound(getHumanChoice, getComputerChoice, incHumanScore, incComputerScore)
+    console.log(computerScore)
+}*/
