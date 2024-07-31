@@ -1,10 +1,97 @@
-let the math.random operator make a number between 1 and 3. 
-if num == 1
-return result = rock
+- write the logic for the computer choice
+1. Plan or pseudocode your solution.
+
+//let the math.random operator make a number between 1 and 3.
+
+//if num == 1
+//return result = rock
+
+//if num == 2
+//return result = paper
+
+//if num == 3
+//return result == scissors
+
+2. Write the code.
+
+function getComputerChoice() {
+    let num = Math.floor(Math.random()*3)
+    return num
+}
+3. Test your code to make sure it works.
+v
+
+--------------------------------------
+Make a function called "getHumanChoice"
+1. Plan your solution.
+//a prompt asking: 
+//"what is you choice?
+//rock, paper or scissors."
 
 
-if num == 2
-return result = paper
+2. Pseudocode your solution
+function getHumanChoice
+	let result = prompt "what is you choice?
+		rock, paper or scissors."
+	
+	return result
 
-if num == 3
-return result == scissors
+3. Write the code.
+
+
+
+4. Test your code to make sure it works.
+v
+
+
+
+--------------------------------------
+function playround
+1. Plan your solution.
+
+when a round is played, I want to collect what the computer chose
+and what the human chose. 
+After that I want to compare these results.
+rock wins from scissors
+paper wins from rock
+scissors wins from paper
+if both choose rock, you both chose the same. 
+if both chose paper, you both chose the same.
+if both chose scissors, you both chose the same.
+
+2. Pseudocode your solution
+
+function with the parameters computerchoice and humanchoice
+	if computerchoice = rock and humanchoice = scissors, computer wins
+	if humanchoice = rock and computerchoice = scissors, human wins
+	if computerchoice = paper and humanchoice = rock, computer wins
+	if humanchoice = paper and computerchoice = rock, human wins
+	if computerchoice = scissors and humanchoice = paper, computer wins
+	if humanchoice = scissors and computerchoice = paper, human wins
+	if both choose rock, you both chose the same. 
+	if both chose paper, you both chose the same.
+	if both chose scissors, you both chose the same.
+
+
+3. Write the code.
+
+
+
+4. Test your code to make sure it works.
+
+
+--------------------------------------
+1. Plan your solution.
+
+
+
+2. Pseudocode your solution
+
+
+
+3. Write the code.
+
+
+
+4. Test your code to make sure it works.
+
