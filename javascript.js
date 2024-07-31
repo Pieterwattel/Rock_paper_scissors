@@ -24,3 +24,18 @@ function getHumanChoice(){
         return "invalid"
     }
 }
+
+//start of the score
+let humanScore = 0
+let computerScore = 0
+
+//function to increment the human score, every time it is run
+function incHumanScore() {
+    ++humanScore
+    return humanScore
+}
+//function to increment the computer score, every time it is run
+function incComputerScore() {
+    ++computerScore
+    return computerScore
+}
