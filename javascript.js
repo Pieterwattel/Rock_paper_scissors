@@ -43,17 +43,52 @@ function incComputerScore() {
 function playRound(humanChoice, computerChoice, incHumanScore, incComputerScore){
     let humanAnswer = humanChoice();
     let computerAnswer = computerChoice();
+    
     if (computerAnswer == "rock" && humanAnswer == "scissors") {
-        console.log("the computer chose " + computerAnswer + " and won. 1 point for the computer")
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and won. 1 point for the computer")
         incComputerScore
         return
+    } else if (computerAnswer == "paper" && humanAnswer == "rock") {
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and won. 1 point for the computer")
+        incComputerScore
+        return
+    } else if (computerAnswer == "scissors" && humanAnswer == "paper") {
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and won. 1 point for the computer")
+        incComputerScore
+        return
+    }
+
+    else if (humanAnswer == "rock" && computerAnswer == "scissors") {
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for the you")
+        incHumanScore
+        return
+    } else if (humanAnswer == "paper" && computerAnswer == "rock") {
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for the you")
+        incHumanScore
+        return
+    } else if (humanAnswer == "scissors" && computerAnswer == "paper") {
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for the you")
+        incHumanScore
+        return
+
+    } else if (humanAnswer == "rock" && computerAnswer == "rock") {
+        console.log("you both chose " + computerAnswer + ". no points are awarded")
+        return
+    } else if (humanAnswer == "paper" && computerAnswer == "paper") {
+        console.log("you both chose " + computerAnswer + ". no points are awarded")
+        return
+    } else if (humanAnswer == "scissors" && computerAnswer == "scissors") {
+        console.log("you both chose " + computerAnswer + ". no points are awarded")
+        return 
+
+
     } else {
-        console.log ("computer didn't choose rock...")
+        console.log ("same choice")
         return
     }
 }
 
-/*for( ; computerScore < 10; computerScore++){
+for( ; computerScore < 10;){
     playRound(getHumanChoice, getComputerChoice, incHumanScore, incComputerScore)
-    console.log(computerScore)
-}*/
+    console.log("current score: you have " + humanScore + " points , and the computer has " + computerScore + " points.")
+}
