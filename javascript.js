@@ -100,16 +100,19 @@ function scoreLog() {
     console.log("current score: you have " + humanScore + " points , and the computer has " + computerScore + " points.")
     if (computerScore == 3){
         console.log("the computer won")
-        gameReset();
+        image.src = "./files/sadDuck.gif"
+
     } else if (humanScore == 3){
         console.log("you won! congratzz.")
-        resetGame();
+        image.src = "./files/dancingDuck.gif"
+
     }
 }
 
 let resetGame = function() {
     computerScore = 0
     humanScore = 0
+    image.src = "./files/happyDuck2.jpg"
     console.log("game reset")
 }
 
@@ -139,8 +142,6 @@ let btn2 = document.createElement("button")
 let btn3 = document.createElement("button")
 let btn4 = document.createElement("button")
 
-
-
 btn1.textContent = "Rock"
 btn2.textContent = "Paper"
 btn3.textContent = "Scissors"
@@ -163,3 +164,5 @@ buttons.forEach((item) => {
 })
 
 btn4.addEventListener("click", resetGame)
+
+let image = document.querySelector("img")
