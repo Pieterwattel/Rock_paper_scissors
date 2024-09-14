@@ -103,11 +103,11 @@ function scoreLog() {
         gameReset();
     } else if (humanScore == 3){
         console.log("you won! congratzz.")
-        gameReset();
+        resetGame();
     }
 }
 
-let gameReset = function() {
+let resetGame = function() {
     computerScore = 0
     humanScore = 0
     console.log("game reset")
@@ -137,18 +137,21 @@ let btnDiv = document.createElement("div")
 let btn1 = document.createElement("button")
 let btn2 = document.createElement("button")
 let btn3 = document.createElement("button")
+let btn4 = document.createElement("button")
 
 
 
 btn1.textContent = "Rock"
 btn2.textContent = "Paper"
 btn3.textContent = "Scissors"
+btn4.textContent = "reset"
 
 body.appendChild(btnDiv)
 
 btnDiv.appendChild(btn1)
 btnDiv.appendChild(btn2)
 btnDiv.appendChild(btn3)
+body.appendChild(btn4)
 
 let buttons = btnDiv.childNodes
 
@@ -158,3 +161,5 @@ buttons.forEach((item) => {
     item.classList.add("gold")
     item.addEventListener("click", () => playRound(item.textContent, getComputerChoice, incHumanScore, incComputerScore))
 })
+
+btn4.addEventListener("click", resetGame)
