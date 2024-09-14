@@ -15,13 +15,17 @@ function getComputerChoice() {
 //a prompt asking: 
 //"rock, paper or scissors."
 function getHumanChoice(){
-    let result1 = prompt("rock paper or scissors?")
-    let result = result1.toLowerCase();
-// if the result is something other than those 3, this will return undefined
-    if (result == "rock" || result == "paper" || result == "scissors") {
-        return result
-    } else {  
-        return "invalid"
+    let resultPrompt = prompt("rock paper or scissors?")
+    if (!resultPrompt){
+        return "null"
+    } else {
+        let result = resultPrompt.toLowerCase();
+    // if the result is something other than those 3, this will return undefined
+        if (result == "rock" || result == "paper" || result == "scissors") {
+            return result
+        } else {  
+            return "invalid"
+        }
     }
 }
 
@@ -40,55 +44,117 @@ function incComputerScore() {
     return computerScore
 }
 
+let endLoop = false
+
 function playRound(humanChoice, computerChoice, incHumanScore, incComputerScore){
-    let humanAnswer = humanChoice();
+    let humanAnswer = humanChoice.toLowerCase();
     let computerAnswer = computerChoice();
     
     if (computerAnswer == "rock" && humanAnswer == "scissors") {
         console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and won. 1 point for the computer")
-        incComputerScore
-        return
+        incComputerScore()
+        
     } else if (computerAnswer == "paper" && humanAnswer == "rock") {
         console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and won. 1 point for the computer")
-        incComputerScore
-        return
+        incComputerScore()
+        
     } else if (computerAnswer == "scissors" && humanAnswer == "paper") {
         console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and won. 1 point for the computer")
-        incComputerScore
-        return
+        incComputerScore()
+        
     }
 
     else if (humanAnswer == "rock" && computerAnswer == "scissors") {
-        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for the you")
-        incHumanScore
-        return
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for you")
+        incHumanScore()
+      
     } else if (humanAnswer == "paper" && computerAnswer == "rock") {
-        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for the you")
-        incHumanScore
-        return
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for you")
+        incHumanScore()
+        
     } else if (humanAnswer == "scissors" && computerAnswer == "paper") {
-        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for the you")
-        incHumanScore
-        return
+        console.log("you chose " + humanAnswer + ", and the computer chose " + computerAnswer + " and lost. 1 point for you")
+        incHumanScore()
+        
 
     } else if (humanAnswer == "rock" && computerAnswer == "rock") {
         console.log("you both chose " + computerAnswer + ". no points are awarded")
-        return
+        
     } else if (humanAnswer == "paper" && computerAnswer == "paper") {
         console.log("you both chose " + computerAnswer + ". no points are awarded")
-        return
+        
     } else if (humanAnswer == "scissors" && computerAnswer == "scissors") {
         console.log("you both chose " + computerAnswer + ". no points are awarded")
-        return 
+        
+    } else if (humanAnswer == "null") {
+        endLoop = true
+    } else if ("") {
+        console.log ("choice is invalid")
+        
+    }
+    scoreLog();
 
+}
 
-    } else {
-        console.log ("same choice")
-        return
+function scoreLog() {
+    console.log("current score: you have " + humanScore + " points , and the computer has " + computerScore + " points.")
+    if (computerScore == 3){
+        console.log("the computer won")
+        gameReset();
+    } else if (humanScore == 3){
+        console.log("you won! congratzz.")
+        gameReset();
     }
 }
 
-for( ; computerScore < 10;){
-    playRound(getHumanChoice, getComputerChoice, incHumanScore, incComputerScore)
-    console.log("current score: you have " + humanScore + " points , and the computer has " + computerScore + " points.")
+let gameReset = function() {
+    computerScore = 0
+    humanScore = 0
+    console.log("game reset")
 }
+
+/*for( ; ;){
+    playRound(getHumanChoice, getComputerChoice, incHumanScore, incComputerScore)
+    if (endLoop){
+        break
+    }
+    console.log("current score: you have " + humanScore + " points , and the computer has " + computerScore + " points.")
+        if (computerScore == 3){
+            console.log("the computer won")
+            break
+        } else if (humanScore == 3){
+            console.log("you won! congratzz.")
+            break
+        }
+}*/
+
+//here all DOM items are created and appended
+
+let body = document.querySelector("body")
+
+let btnDiv = document.createElement("div")
+
+let btn1 = document.createElement("button")
+let btn2 = document.createElement("button")
+let btn3 = document.createElement("button")
+
+
+
+btn1.textContent = "Rock"
+btn2.textContent = "Paper"
+btn3.textContent = "Scissors"
+
+body.appendChild(btnDiv)
+
+btnDiv.appendChild(btn1)
+btnDiv.appendChild(btn2)
+btnDiv.appendChild(btn3)
+
+let buttons = btnDiv.childNodes
+
+console.log(buttons)
+
+buttons.forEach((item) => {
+    item.classList.add("gold")
+    item.addEventListener("click", () => playRound(item.textContent, getComputerChoice, incHumanScore, incComputerScore))
+})

@@ -95,3 +95,21 @@ function with the parameters computerchoice and humanchoice
 
 4. Test your code to make sure it works.
 
+
+
+--------------------------------------
+1. Plan your solution.
+
+
+
+2. Pseudocode your solution
+
+
+
+3. Write the code.
+
+
+
+4. Test your code to make sure it works.
+
+

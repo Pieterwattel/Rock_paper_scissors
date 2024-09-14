@@ -31,11 +31,20 @@
     background-color: rgb(11, 55, 92);
 }
 
-body{
+/*body{
     display: flex;
     flex: 0;
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
     padding-top: 300px;
+}*/
+.gold {
+    background-color: goldenrod;
+}
+
+.visible {
+    border: 5px, dotted, orangered;
+    height: 50px;
+    width: 50px;
 }
