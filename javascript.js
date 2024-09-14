@@ -12,23 +12,6 @@ function getComputerChoice() {
     }
 }
 
-//a prompt asking: 
-//"rock, paper or scissors."
-function getHumanChoice(){
-    let resultPrompt = prompt("rock paper or scissors?")
-    if (!resultPrompt){
-        return "null"
-    } else {
-        let result = resultPrompt.toLowerCase();
-    // if the result is something other than those 3, this will return undefined
-        if (result == "rock" || result == "paper" || result == "scissors") {
-            return result
-        } else {  
-            return "invalid"
-        }
-    }
-}
-
 //start of the score
 let humanScore = 0
 let computerScore = 0
@@ -43,8 +26,6 @@ function incComputerScore() {
     ++computerScore
     return computerScore
 }
-
-let endLoop = false
 
 function playRound(humanChoice, computerChoice, incHumanScore, incComputerScore){
     let humanAnswer = humanChoice.toLowerCase();
@@ -93,7 +74,6 @@ function playRound(humanChoice, computerChoice, incHumanScore, incComputerScore)
         
     }
     scoreLog();
-
 }
 
 function scoreLog() {
@@ -116,21 +96,6 @@ let resetGame = function() {
     console.log("game reset")
 }
 
-/*for( ; ;){
-    playRound(getHumanChoice, getComputerChoice, incHumanScore, incComputerScore)
-    if (endLoop){
-        break
-    }
-    console.log("current score: you have " + humanScore + " points , and the computer has " + computerScore + " points.")
-        if (computerScore == 3){
-            console.log("the computer won")
-            break
-        } else if (humanScore == 3){
-            console.log("you won! congratzz.")
-            break
-        }
-}*/
-
 //here all DOM items are created and appended
 
 let body = document.querySelector("body")
@@ -140,19 +105,19 @@ let btnDiv = document.createElement("div")
 let btn1 = document.createElement("button")
 let btn2 = document.createElement("button")
 let btn3 = document.createElement("button")
-let btn4 = document.createElement("button")
+let btnReset = document.createElement("button")
 
 btn1.textContent = "Rock"
 btn2.textContent = "Paper"
 btn3.textContent = "Scissors"
-btn4.textContent = "reset"
+btnReset.textContent = "reset"
 
 body.appendChild(btnDiv)
 
 btnDiv.appendChild(btn1)
 btnDiv.appendChild(btn2)
 btnDiv.appendChild(btn3)
-body.appendChild(btn4)
+body.appendChild(btnReset)
 
 let buttons = btnDiv.childNodes
 
@@ -163,6 +128,6 @@ buttons.forEach((item) => {
     item.addEventListener("click", () => playRound(item.textContent, getComputerChoice, incHumanScore, incComputerScore))
 })
 
-btn4.addEventListener("click", resetGame)
+btnReset.addEventListener("click", resetGame)
 
 let image = document.querySelector("img")
