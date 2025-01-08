@@ -27,7 +27,8 @@ function incComputerScore() {
     return computerScore
 }
 
-function playRound(humanChoice, computerChoice, incHumanScore, incComputerScore){
+
+let playRound = function (humanChoice, computerChoice, incHumanScore, incComputerScore){
     let humanAnswer = humanChoice.toLowerCase();
     let computerAnswer = computerChoice();
     
@@ -81,10 +82,16 @@ function scoreLog() {
     if (computerScore == 3){
         console.log("the computer won")
         image.src = "./files/sadDuck.gif"
+        buttons.forEach((item) => {
+            item.removeEventListener("click", playRound())
+        })
 
     } else if (humanScore == 3){
         console.log("you won! congratzz.")
         image.src = "./files/dancingDuck.gif"
+        buttons.forEach((item) => {
+            item.removeEventListener("click", playRound())
+        })
 
     }
 }
@@ -94,6 +101,9 @@ let resetGame = function() {
     humanScore = 0
     image.src = "./files/happyDuck2.jpg"
     console.log("game reset")
+    buttons.forEach((item) => {
+        item.addEventListener("click", () => playRound(item.textContent, getComputerChoice, incHumanScore, incComputerScore))
+    })
 }
 
 //here all DOM items are created and appended
